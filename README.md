@@ -11,4 +11,5 @@ Criação de um ambiente VR interactivo, usando [A-Frame](https://aframe.io) - u
 ----
 #### MDM/UC - ARVI - Ambientes de Realidade Virtual Interativos 2023
 
-Disponivel no GitHub <a href="https://jmartsdesign.github.io/Exercise1virtualtour/" target="_blank"> https://jmartsdesign.github.io/Exercise1virtualtour/</a>
+<p> Disponivel no GitHub <a href="https://github.com/jmartsdesign/Exercise-2-3d-ui" target="_blank"> https://github.com/jmartsdesign/Exercise-2-3d-ui/</a> </p>
+<p> Disponivel no Glith <a ref="https://exercise-2-3d-ui.glitch.me/" target="_blank"> https://exercise-2-3d-ui.glitch.me</a> </p>
