@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>3D UI-Living Room</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-webcentric-component/0.1.0/dist/aframe-webcentric-component.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.0.2/dist/aframe-extras.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="../js/livecode.js"></script>
+  </head>
+
+  <body>
+    <a-scene webcentric stats="false" vr-mode-ui="true">
+      <a-assets>
+        <!-- Loads 3D model as asset-->
+        <a-asset-item
+          id="room"
+          crossorigin="anonymous"
+          src="https://raw.githubusercontent.com/jmartsdesign/JMArts-Sample-Models/main/LivingRoom/LivingRoom.gltf"
+        ></a-asset-item>
+        <!-- Load the videos -->
+        <video
+          id="video0"
+          preload
+          loop
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/inicio.mp4?v=1698520395045"
+        ></video>
+        <video
+          id="video1"
+          preload
+          loop
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Moai.mp4?v=1698503304092"
+        ></video>
+        <video
+          id="video2"
+          preload
+          loop
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Card.mp4?v=1698503305105"
+        ></video>
+        <video
+          id="video3"
+          preload
+          loop
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Lost.mp4?v=1698503302359"
+        ></video>
+        <video
+          id="video4"
+          preload
+          loop
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/pc.mp4?v=1698531292666"
+        ></video>
+
+        <!-- Load the images -->
+        <img
+          id="inicio"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/inicio.png?v=1698520168845"
+        />
+        <img
+          id="moai"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Moai.png?v=1698503412752"
+        />
+        <img
+          id="card"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Card.png?v=1698503411131"
+        />
+        <img
+          id="lost"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Lost.png?v=1698503411897"
+        />
+        <img
+          id="pc"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/pc.png?v=1698531291312"
+        />
+        <img
+          id="reload"
+          crossorigin="anonymous"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/reload.gif?v=1698536511191"
+        />
+        <!-- Load the sound -->
+        <audio
+          id="click-sound"
+          src="https://cdn.glitch.global/e1a8eb52-4b15-4b82-af8c-867a7e2922bc/Mouse_Click_3-fesliyanstudios.com.mp3?v=1698510921381"
+        ></audio>
+      </a-assets>
+
+      <!-- Load the environment -->
+      <a-entity environment="preset: starry"> </a-entity>
+
+      <!-- Places 3D in the VR scene -->
+      <a-gltf-model
+        position="-1 0.01 0"
+        scale=""
+        src="#room"
+        rotation="0 -90 0"
+      ></a-gltf-model>
+
+      <!-- Screen where the video will be displayed -->
+      <a-video
+        controlvideo
+        id="screen"
+        src="#video0"
+        width="16"
+        height="9"
+        position="-0.817 1.6 -2"
+        geometry="height: 1.38; width: 2.01"
+        rotation="0 0 0"
+      ></a-video>
+
+      <!-- Botao imagem1 -->
+      <a-box
+        id="b1"
+        src="#moai"
+        position="-2.43137 1.04256 -1.82"
+        width="0.4"
+        height="0.4"
+        depth="0.4"
+        visible="true"
+        event-set__mouseenter="visible: false"
+        event-set__mouseenter2="_event: mouseenter; _target: #screen; material.src: #video1"
+        event-set__mouseleave="visible: true"
+      ></a-box>
+      <!-- Botao imagem2 -->
+      <a-box
+        id="b2"
+        src="#card"
+        position="-2.43137 0.62 -1.82"
+        width="0.4"
+        height="0.4"
+        depth="0.4"
+        visible="true"
+        event-set__mouseenter="visible: false"
+        event-set__mouseenter2="_event: mouseenter; _target: #screen; material.src: #video2"
+        event-set__mouseleave="visible: true"
+      ></a-box>
+      <!-- Botao imagem3 -->
+      <a-box
+        id="b3"
+        src="#lost"
+        position="0.9 0.62 -1.82"
+        width="0.4"
+        height="0.4"
+        depth="0.4"
+        visible="true"
+        event-set__mouseenter="visible: false"
+        event-set__mouseenter2="_event: mouseenter; _target: #screen; material.src: #video3"
+        event-set__mouseleave="visible: true"
+      ></a-box>
+      <!-- Botao imagem4 -->
+      <a-box
+        id="b4"
+        src="#pc"
+        position="0.9 1.043 -1.82"
+        width="0.4"
+        height="0.4"
+        depth="0.4"
+        visible="true"
+        event-set__mouseenter="visible: false"
+        event-set__mouseenter2="_event: mouseenter; _target: #screen; material.src: #video4"
+        event-set__mouseleave="visible: true"
+      ></a-box>
+
+      <!--  -->
+      <script>
+        /* global AFRAME */
+        AFRAME.registerComponent("controlvideo", {
+          init: function () {
+            this.onClick = this.onClick.bind(this);
+          },
+          play: function () {
+            window.addEventListener("click", this.onClick);
+          },
+          pause: function () {
+            window.removeEventListener("click", this.onClick);
+          },
+          onClick: function (evt) {
+            var videoEl = this.el.getAttribute("material").src;
+            if (!videoEl) {
+              return;
+            }
+            this.el.object3D.visible = true;
+            videoEl.play();
+          },
+        });
+      </script>
+
+      <a-plane
+        id="btreload"
+        material="shader:gif;src:#reload"
+        position="-0.593 0.713 -0.437"
+        scale="1.4 1 0"
+        rotation="-90 0 0"
+               visible="false"
+        event-set__mouseenter="visible: true"
+        event-set__mouseenter2="_event: mouseenter; _target: #screen; material.src: #video0"
+        event-set__mouseleave="visible: false"
+        sound="src: #click-sound; on: click"
+      ></a-plane>
+
+      <!-- lights -->
+      <a-light id="ambientLight" type="ambient" color="#BBB"></a-light>
+      <a-light
+        id="directionalLight"
+        type="directional"
+        color="#FFF"
+        position="2.22768 4.47562 -0.88451"
+        light="castShadow: true; shadowCameraTop: 6.39; shadowCameraRight: 2.56; shadowCameraBottom: 3.54; shadowCameraLeft: -4.55"
+        data-brackets-id="22"
+        visible=""
+      ></a-light>
+
+      <!-- Line to create a cursor -->
+      <a-entity id="cameraRig" position="-0.65 0 1.5" rotation="0 30 0">
+        <a-camera id="camera" wasd-controls-enabled="true">
+          <a-cursor></a-cursor>
+        </a-camera>
+      </a-entity>
+    </a-scene>
+    <!-- Botão Glitch -->
+    <div
+      class="glitchButton position-y-top"
+      style="position: fixed; bottom: 20px; right: 20px"
+    ></div>
+    <script src="https://button.glitch.me/button.js"></script>
+    <!-- GitHub Corner. 
+    <a href="https://github.com/oscarmarinmiro/aframe-immersive-video" class="github-corner">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+     End GitHub Corner. -->
+  </body>
+</html>
